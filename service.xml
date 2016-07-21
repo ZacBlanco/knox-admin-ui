@@ -22,6 +22,7 @@
         <policy role="rewrite"/>
         <policy role="identity-assertion"/>
         <policy role="authorization"/>
+		<policy role="federation"/>
     </policies>
     <routes>
         <route path="/?**">

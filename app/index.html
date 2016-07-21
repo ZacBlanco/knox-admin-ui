@@ -12,43 +12,71 @@
 		
 		<title>Knox Manager</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-
-<!--		<script type="text/javascript" src="knox.js"></script>-->
-		<script>//document.addEventListener("load", listStatus());</script>
 	</head>
 	<body>
 		<header class="twelve columns bg-gray">
 			<a href="/"><h1 class="head">Knox Manager</h1></a>
 		</header>
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="ten columns offset-by-one centered">
+					<h5 style="text-align:center">Knox Topologies</h5>
+					<div id="topologies-container">
+						<div class="card four columns">
+							<p>Sandbox</p>
+							<button>Click to view</button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 		
 		<div class="container">
 			<div class="row">
-				<div class="eight columns card offset-by-two">
+				<div id="topology-container" style="display:none" class="ten columns offset-by-one centered">
+					<br>
+					<br>
+					<br>
+					<h5 style="text-align:center">Topology</h5>
+					<div>
+						<div class="card twelve columns">
+							<span class="close-btn" onclick="hideTopology()"></span>
+							<p id="topology-data-name">Topology Name</p>
+							<div id="topology-data" class="wrap"></div>
+						</div>
+					</div>
 					
-					<p style="text-align:center">Login to Manage Knox</p>
-					<a href="https://localhost:8443/gateway/knoxsso/knoxauth/login.html?originalUrl=https://localhost:8443/gateway/admin/knox-manager/" >
-						<div class="u-center-block button"><p>Login to Knox</p></div>	
-					</a>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="row centered">
+				<h5>Knox Version</h5>
+				<div class="ten columns card offset-by-one centered wrap">
+						<a id="knox-version">Knox Version and Hash Here</a>
 				</div>
 			</div>
 		</div>
 				
-	
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/http.js"></script>
-		<script>
-			var tClient = new client(function(res) {
-				console.log(res);
-				if (res.status == 200) {
-					console.log("I'm so good");
-					console.log(res.responseText);
-				} else {
-					console.log("I'm not so good :( ; Code " + res.status);
-					console.log(res.responseText);
-				}
-			})
-			tClient.get(getAdminApiUrl() + 'topologies')
-		</script>
+	<script type="text/javascript" src="js/admin-api.js"></script>
+	<script type="text/javascript" src="js/elements.js"></script>
+	<script type="text/javascript" src="js/update.js"></script>
+	<script>
+		window.onload = function () {
+			updateHomePage();
+		}
+
+	</script>
 	</body>
 </html>
 
