@@ -1,12 +1,14 @@
 var HttpClient = function () {
 	this.get = function (url, callback) {
 		var req = new XMLHttpRequest();
-		req.withCredentials = true;
 		req.open('GET', url);
 		for(i = 0; i < headers.length; i++) {
 			req.setRequestHeader(headers[i].key, headers[i].value);
 		}
 		req.onreadystatechange = function () {
+			if (req.status >= 300 && req.status < 400) {
+				window.location.reload();
+			}
 			if (req.readyState === XMLHttpRequest.DONE) {
 				if (req.status === 200) {
 					callback({ status : req.status,

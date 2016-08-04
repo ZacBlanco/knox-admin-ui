@@ -23,7 +23,7 @@ function updateTopologies() {
 				var t = res.topologies.topology[i];
 				tops.appendChild(createTopologyCard(t.name, function(t){
 					this.name = t.name;
-					console.log(this.name);
+//					console.log(this.name);
 				}));
 			}
 
@@ -51,7 +51,9 @@ function getTopology(name) {
 			var top = document.getElementById('topology-data');
 			var nm = document.getElementById('topology-data-name');
 			nm.innerHTML = name;
+			
 			top.innerHTML = JSON.stringify(res);
+			console.log(res);
 			showTopology();
 		} else {
 			hideTopology();
