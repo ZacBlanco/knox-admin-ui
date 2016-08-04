@@ -37,25 +37,60 @@
 		
 		<div class="container">
 			<div class="row">
-				<div id="topology-container" style="display:none" class="ten columns offset-by-one centered">
+				<div id="topology-container" style="display:block" class="ten columns offset-by-one centered">
 					<br>
 					<h5 style="text-align:center">Topology</h5>
 					<div>
 						<div class="card twelve columns">
 							<span class="close-btn" onclick="hideTopology()"></span>
 							<p id="topology-data-name">Topology Name</p>
-							<div id="topology-data" class="wrap"></div>
+							<div id="topology-data" class="wrap">
+								
+								    <div data-role="collapsible">
+										<h4>B</h4>
+										<ul data-role="listview">
+										   <li>Billy <input id=""></li>
+										   <li>Bob </li>
+										</ul>
+									</div>
+								<form>
+									<fieldset>
+										<legend>Providers</legend>
+										<p>
+											<input type="color"/>
+										</p>
+									</fieldset>
+									<label>Providers</label>
+									<label>ProviderName</label>
+										<span class="expand-btn"></span>
+									<form-item>
+												<label>Param1</label>
+												<input type="text">
+											</form-item>
+									<label>Applications</label>
+									<div>
+									</div>
+									<label>Services</label>
+									<div>
+									</div>
+								
+								
+								</form>
+								
+							
+							</div>
 						</div>
 					</div>
 					
 				</div>
 			</div>
 		</div>
-		<br>
-		<div class="container">
-			<div class="row centered">
-				<h5>Knox Version</h5>
-				<div class="ten columns card offset-by-one centered wrap">
+		
+		<hr>
+		<div class="container ten columns offset-by-one">
+			<div class="row wrap">
+				Knox Version
+				<div>
 						<a id="knox-version">Knox Version and Hash Here</a>
 				</div>
 			</div>
@@ -65,11 +100,13 @@
 	<script type="text/javascript" src="js/http.js"></script>
 	<script type="text/javascript" src="js/admin-api.js"></script>
 	<script type="text/javascript" src="js/elements.js"></script>
-	<script type="text/javascript" src="js/update.js"></script>
+	<script type="text/javascript" src="js/page-update.js"></script>
 	<script>
 		window.onload = function () {
 			updateHomePage();
 		}
+		
+		setInterval(updateHomePage, 5000);
 
 	</script>
 	</body>
