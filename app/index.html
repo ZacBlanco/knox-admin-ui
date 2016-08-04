@@ -7,95 +7,137 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/skeleton.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 		
 		<title>Knox Manager</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	</head>
 	<body>
-		<header class="twelve columns bg-gray">
-			<a href="/"><h1 class="head">Knox Manager</h1></a>
-		</header>
-		<br>
-		<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="ten columns offset-by-one centered">
-					<h5 style="text-align:center">Knox Topologies</h5>
-					<div id="topologies-container">
-						<div class="card four columns">
-							<p>Sandbox</p>
-							<button>Click to view</button>
-						</div>
-					</div>
-					
+		<header class="col-xs-12 bg-gray">
+			<div class="container ">
+				<div class="row">
+					<h1>Knox Manager</h1>
 				</div>
 			</div>
-		</div>
+		</header>
 		
 		<div class="container">
-			<div class="row">
-				<div id="topology-container" style="display:block" class="ten columns offset-by-one centered">
-					<br>
-					<h5 style="text-align:center">Topology</h5>
-					<div>
-						<div class="card twelve columns">
-							<span class="close-btn" onclick="hideTopology()"></span>
-							<p id="topology-data-name">Topology Name</p>
-							<div id="topology-data" class="wrap">
-								
-								    <div data-role="collapsible">
-										<h4>B</h4>
-										<ul data-role="listview">
-										   <li>Billy <input id=""></li>
-										   <li>Bob </li>
-										</ul>
-									</div>
-								<form>
-									<fieldset>
-										<legend>Providers</legend>
-										<p>
-											<input type="color"/>
-										</p>
-									</fieldset>
-									<label>Providers</label>
-									<label>ProviderName</label>
-										<span class="expand-btn"></span>
-									<form-item>
-												<label>Param1</label>
-												<input type="text">
-											</form-item>
-									<label>Applications</label>
-									<div>
-									</div>
-									<label>Services</label>
-									<div>
-									</div>
-								
-								
-								</form>
-								
-							
-							</div>
-						</div>
-					</div>
-					
-				</div>
+			<div class="row col-xs-12">
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#topologies" aria-controls="topologies" role="tab" data-toggle="tab">Topologies</a></li>
+    <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+				</ul>
 			</div>
-		</div>
+    </div>
+    
+    <div class="container">
+      <div class="tab-content col-xs-12">
+				<div role="tabpanel" class="tab-pane fade in active" id="home">
+          <br>
+          Home
+        </div>
+				<div role="tabpanel" class="tab-pane fade" id="topologies">
+          <br>
+          <div class="row">
+            <p>Topologies will appear here</p>
+            <!--   TOPOLOGY CARDS WILL GO HERE         -->
+            <!--   TOPOLOGY CARDS WILL GO HERE         -->
+            
+          </div>
+          <div class="row">
+            <p>The topology editor will appear after selecting a topology</p>
+<!--            TOPOLOGY EDITOR HERE -->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                  <p class="panel-title">Topology Editor</p>
+                </div>
+                <div class="panel-body">
+                  <h3>Topology Name: <code>sandbox</code></h3>
+                  
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Providers
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        Providers go here
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Services
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        Services go here
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Applications
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Applications go here
+      </div>
+    </div>
+  </div>
+</div>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                </div>
+              </div>
+          </div>
+        </div>
+				<div role="tabpanel" class="tab-pane fade" id="about">
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="well">
+                <p>Knox Version</p>
+                <code><a id="knox-version">Knox Version and Hash Here</a></code>
+              </div>
+            </div>
+          </div>
+        </div>
+		  </div>  
+    </div>
 		
 		<hr>
-		<div class="container ten columns offset-by-one">
-			<div class="row wrap">
-				Knox Version
-				<div>
-						<a id="knox-version">Knox Version and Hash Here</a>
-				</div>
-			</div>
-		</div>
-				
+    <footer class="footer">
+      <div class="container">
+        <div class="row col-xs-12">
+          Apache Knox Manager 0.0.1<br>
+          Licensed Under the Apache License v2.0
+        </div>
+      </div>
+    </footer>
+	<script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/http.js"></script>
 	<script type="text/javascript" src="js/admin-api.js"></script>
