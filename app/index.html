@@ -67,12 +67,32 @@
                   <div class="modal-body">
 
                     <ul class="nav nav-tabs" role="tablist">
-                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                      <li role="presentation" class="active"><a href="#topology-data-pretty" aria-controls="Topology Data" role="tab" data-toggle="tab">Formatted</a></li>
+                      <li role="presentation"><a href="#topology-data-json" aria-controls="home" role="tab" data-toggle="tab">JSON</a></li>
+                      <li role="presentation"><a href="#topology-data-xml" aria-controls="JSON Topology" role="tab" data-toggle="tab">XML</a></li>
                     </ul>
 
-                    <div id="topology-data">
-                      <pre>You'll find the topology information here</pre>
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="topology-data-pretty">
+                        <br>
+                        <div id="topology-data-pretty-container">
+                          <h2>Sandbox</h2>
+                          <label>Timestamp: </label>102349871230
+                          
+                          <h3>Providers</h3>
+                          <h3>Applications</h3>
+                          <h3>Services</h3>
+                          
+                        </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="topology-data-json">
+                        <br>
+                        <pre>Unable to get JSON topology</pre>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="topology-data-xml">
+                        <br>
+                        <pre>Unable to get XML topology</pre>
+                      </div>
                     </div>
                   </div>
                   <div class="modal-footer">
