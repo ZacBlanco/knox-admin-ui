@@ -1,114 +1,137 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/skeleton.css">
-		<link rel="stylesheet" href="css/main.css">
-		
-		<title>Knox Manager</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-	</head>
-	<body>
-		<header class="twelve columns bg-gray">
-			<a href="/"><h1 class="head">Knox Manager</h1></a>
-		</header>
-		<br>
-		<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="ten columns offset-by-one centered">
-					<h5 style="text-align:center">Knox Topologies</h5>
-					<div id="topologies-container">
-						<div class="card four columns">
-							<p>Sandbox</p>
-							<button>Click to view</button>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<div class="container">
-			<div class="row">
-				<div id="topology-container" style="display:block" class="ten columns offset-by-one centered">
-					<br>
-					<h5 style="text-align:center">Topology</h5>
-					<div>
-						<div class="card twelve columns">
-							<span class="close-btn" onclick="hideTopology()"></span>
-							<p id="topology-data-name">Topology Name</p>
-							<div id="topology-data" class="wrap">
-								
-								    <div data-role="collapsible">
-										<h4>B</h4>
-										<ul data-role="listview">
-										   <li>Billy <input id=""></li>
-										   <li>Bob </li>
-										</ul>
-									</div>
-								<form>
-									<fieldset>
-										<legend>Providers</legend>
-										<p>
-											<input type="color"/>
-										</p>
-									</fieldset>
-									<label>Providers</label>
-									<label>ProviderName</label>
-										<span class="expand-btn"></span>
-									<form-item>
-												<label>Param1</label>
-												<input type="text">
-											</form-item>
-									<label>Applications</label>
-									<div>
-									</div>
-									<label>Services</label>
-									<div>
-									</div>
-								
-								
-								</form>
-								
-							
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<hr>
-		<div class="container ten columns offset-by-one">
-			<div class="row wrap">
-				Knox Version
-				<div>
-						<a id="knox-version">Knox Version and Hash Here</a>
-				</div>
-			</div>
-		</div>
-				
-	<script type="text/javascript" src="js/config.js"></script>
-	<script type="text/javascript" src="js/http.js"></script>
-	<script type="text/javascript" src="js/admin-api.js"></script>
-	<script type="text/javascript" src="js/elements.js"></script>
-	<script type="text/javascript" src="js/page-update.js"></script>
-	<script>
-		window.onload = function () {
-			updateHomePage();
-		}
-		
-		setInterval(updateHomePage, 5000);
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	</script>
-	</body>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <title>Knox Manager</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <header class="col-xs-12 bg-gray">
+    <div class="container ">
+      <div class="row">
+        <h1>Knox Manager</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row col-xs-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#topologies" aria-controls="topologies" role="tab" data-toggle="tab">Topologies</a></li>
+        <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="home">
+        <br>
+        <h3>Apache Knox Manager <small>0.0.1</small></h3>
+        <hr>
+        <p class="alert alert-warning"><span class="glyphicon-fire glyphicon"></span> Caution! <span class="glyphicon-fire glyphicon"></span> This software is still in a beta phase and may be buggy. Procede with caution. Your Knox instance might go up in flames!</p>
+
+        <p>Here's a list of features that Knox Manager currently has to offer</p>
+        <ul>
+          <li>Topology Viewer</li>
+          <li>View Instance Version</li>
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="topologies">
+        <br>
+        <div class="row">
+
+          <div id="topology-modal-viewer-container">
+
+            <!--           TOPOLOGY MODAL INFO GOES HERE-->
+            <div class="modal fade" id="topology-view-modal" tabindex="-1" role="dialog" aria-labelledby="topology-modal-label">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="topology-modal-label">Topology Information</h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                    </ul>
+
+                    <div id="topology-data">
+                      <pre>You'll find the topology information here</pre>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            MODAL INFO GOES HERE-->
+
+          </div>
+        </div>
+        <!--   TOPOLOGY CARDS WILL GO HERE         -->
+        <div class="row" id="topology-card-container">
+        </div>
+        <button data-toggle="modal" class="btn btn-primary" data-target="#topology-view-modal">Test</button>
+        <!--   TOPOLOGY CARDS WILL GO HERE         -->
+
+
+
+      </div>
+
+      <!--KNOX VERSION INFORMATION -->
+      <div role="tabpanel" class="tab-pane fade" id="about">
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="well">
+              <p>Knox Version</p>
+              <code id="knox-version">Knox Version and Hash Here</code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--KNOX VERSION INFORMATION-->
+    </div>
+  </div>
+
+  <hr>
+  <footer class="footer">
+    <div class="container">
+      <div class="row col-xs-12">
+        Apache Knox Manager 0.0.1
+        <br> Licensed Under the Apache License v2.0
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/http.js"></script>
+  <script type="text/javascript" src="js/admin-api.js"></script>
+  <script type="text/javascript" src="js/elements.js"></script>
+  <script type="text/javascript" src="js/page-update.js"></script>
+  <script>
+    window.onload = function () {
+      updateHomePage();
+    }
+
+    //    setInterval(updateHomePage, 5000);
+  </script>
+</body>
+
 </html>
-
